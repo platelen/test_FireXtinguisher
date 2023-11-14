@@ -1,3 +1,4 @@
+using Events;
 using Player;
 using UnityEngine;
 
@@ -11,10 +12,12 @@ namespace Interactable
         {
             if (IsPlayerNearby())
             {
-                Debug.Log("Можно взаимодействовать");
+                GlobalEvents.SendStartTakeFireExtinguisherText();
                 if (Input.GetKeyDown(KeyCode.E))
                 {
+                    GlobalEvents.SendStartUseFireExtinguisher();
                     TryInteract();
+                    Destroy(gameObject);
                 }
             }
         }
@@ -27,7 +30,7 @@ namespace Interactable
 
         private void TryInteract()
         {
-            Debug.Log("Interacted with object");
+            GlobalEvents.SendStartTakeFireExtinguisher();
         }
 
 

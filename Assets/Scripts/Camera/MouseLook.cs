@@ -7,9 +7,9 @@ namespace Camera
         [SerializeField] private Transform _playerBody;
         [SerializeField] private float _mouseSens = 100f;
 
-        private float _xRotation = 0f;
+        private float _xRotation = 10f;
 
-        private void Start()
+        private void Awake()
         {
             Cursor.lockState = CursorLockMode.Locked;
         }

@@ -123,6 +123,11 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!4 &503346081 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5505064122414624174, guid: 139184db91721b84fada859b303c9fa4, type: 3}
+  m_PrefabInstance: {fileID: 1764832484}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &594310036 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1869520745272010292, guid: 139184db91721b84fada859b303c9fa4, type: 3}
@@ -374,6 +379,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1852175470}
     m_Modifications:
+    - target: {fileID: 871549187944060581, guid: 139184db91721b84fada859b303c9fa4, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1681862470877817256, guid: 139184db91721b84fada859b303c9fa4, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.04700003
@@ -578,6 +587,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7583062019411016138, guid: baef5e0ed6c421a41a281cd231bbce91, type: 3}
+      propertyPath: _fireEx
+      value: 
+      objectReference: {fileID: 503346081}
     - target: {fileID: 8980917424048334336, guid: baef5e0ed6c421a41a281cd231bbce91, type: 3}
       propertyPath: _prefabFireExtinguisher
       value: 

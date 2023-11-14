@@ -1,5 +1,4 @@
 using Events;
-using FireExtinguisher;
 using UnityEngine;
 
 namespace Player
@@ -8,7 +7,6 @@ namespace Player
     {
         [SerializeField] private ParticleSystem _foamParticles;
         [SerializeField] private GameObject _prefabFireExtinguisher;
-        [SerializeField] private FireExtinguisherController _fireExtinguisherController;
 
         public static PlayerController Instance;
 
@@ -49,6 +47,7 @@ namespace Player
             if (Input.GetKeyDown(KeyCode.Q))
             {
                 CheckStateThePin();
+                _prefabFireExtinguisher.transform.GetChild(3).GetComponent<Animator>().enabled = true;
                 //Включаем аниматор у чеки
             }
 
@@ -58,12 +57,14 @@ namespace Player
                 if (Input.GetKeyDown(KeyCode.E))
                 {
                     CheckStateTheSeal();
+                    _prefabFireExtinguisher.transform.GetChild(4).GetComponent<Animator>().enabled = true;
                     //Включаем аниматор у пломбы
                 }
             }
 
             if (_isPullOutTheSeal)
             {
+                _prefabFireExtinguisher.transform.GetChild(2).GetComponent<Animator>().enabled = true;
                 CheckStatePutOutTheFire();
             }
         }

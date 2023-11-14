@@ -5,7 +5,7 @@ namespace Events
 {
     public class GlobalEvents : MonoBehaviour
     {
-        
+        public static readonly UnityEvent OnStartFireParticlesOff = new UnityEvent();
         public static readonly UnityEvent OnStartTakeFireExtinguisher = new UnityEvent();
         public static readonly UnityEvent OnStartTakeFireExtinguisherText = new UnityEvent();
         public static readonly UnityEvent OnStartUseFireExtinguisher = new UnityEvent();
@@ -13,7 +13,13 @@ namespace Events
         public static readonly UnityEvent OnStartPullOutTheSeal = new UnityEvent();
         public static readonly UnityEvent OnStartClickMouseButton = new UnityEvent();
         public static readonly UnityEvent OnStartPutOutTheFire = new UnityEvent();
+        public static readonly UnityEvent OnStartCongratulation = new UnityEvent();
 
+
+        public static void SendStartFireParticlesOff()
+        {
+            OnStartFireParticlesOff.Invoke();
+        }
 
         public static void SendStartTakeFireExtinguisher()
         {
@@ -24,6 +30,7 @@ namespace Events
         {
             OnStartTakeFireExtinguisherText.Invoke();
         }
+
         public static void SendStartUseFireExtinguisher()
         {
             OnStartUseFireExtinguisher.Invoke();
@@ -47,6 +54,11 @@ namespace Events
         public static void SendStartPutOutTheFire()
         {
             OnStartPutOutTheFire.Invoke();
+        }
+
+        public static void SendStartCongratulation()
+        {
+            OnStartCongratulation.Invoke();
         }
     }
 }

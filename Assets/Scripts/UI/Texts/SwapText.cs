@@ -13,6 +13,7 @@ namespace UI.Texts
         private string _textPullOutTheSeal = "Нажмите 'E', чтобы выдернуть пломбу";
         private string _textClickMouseButton = "Нажимайте левую кнопку мыши, чтобы тушить пожар!";
         private string _textPutOutTheFire = "Зажмите левую кнопку мыши, чтобы тушить пожар!";
+        private string _textCongratulation = "Поздравляем, Вы, выжили :)";
 
         private void Awake()
         {
@@ -23,6 +24,7 @@ namespace UI.Texts
             GlobalEvents.OnStartPullOutTheSeal.AddListener(OnStartPullOutTheSeal);
             GlobalEvents.OnStartClickMouseButton.AddListener(OnStartClickMouseButton);
             GlobalEvents.OnStartPutOutTheFire.AddListener(OnStartPutOutTheFire);
+            GlobalEvents.OnStartCongratulation.AddListener(OnStartCongratulation);
         }
 
 
@@ -51,6 +53,11 @@ namespace UI.Texts
             _text.text = _textPutOutTheFire;
         }
 
+        private void OnStartCongratulation()
+        {
+            _text.text = _textCongratulation;
+        }
+
         private void OnDestroy()
         {
             GlobalEvents.OnStartTakeFireExtinguisherText.RemoveListener(OnStartTakeFireExtinguisher);
@@ -58,6 +65,7 @@ namespace UI.Texts
             GlobalEvents.OnStartPullOutTheSeal.RemoveListener(OnStartPullOutTheSeal);
             GlobalEvents.OnStartClickMouseButton.RemoveListener(OnStartClickMouseButton);
             GlobalEvents.OnStartPutOutTheFire.RemoveListener(OnStartPutOutTheFire);
+            GlobalEvents.OnStartCongratulation.RemoveListener(OnStartCongratulation);
         }
     }
 }

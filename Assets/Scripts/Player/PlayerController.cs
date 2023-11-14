@@ -31,19 +31,6 @@ namespace Player
 
         private void Update()
         {
-            if (_isPullOutTheSeal)
-            {
-                if (Input.GetButton("Fire1"))
-                {
-                    StartExtinguishing();
-                }
-                else if (Input.GetButtonUp("Fire1"))
-                {
-                    StopExtinguishing();
-                }
-            }
-
-
             if (Input.GetKeyDown(KeyCode.Q))
             {
                 CheckStateThePin();
@@ -58,6 +45,8 @@ namespace Player
                 {
                     CheckStateTheSeal();
                     _prefabFireExtinguisher.transform.GetChild(4).GetComponent<Animator>().enabled = true;
+                    GlobalEvents.SendStartPutOutTheFire();
+                    _isPullThePin = false;
                     //Включаем аниматор у пломбы
                 }
             }
@@ -71,14 +60,12 @@ namespace Player
 
         private void StartExtinguishing()
         {
-            //_foamParticles.Play();
-            // Дополнительные действия при начале тушения
+            _foamParticles.Play();
         }
 
         private void StopExtinguishing()
         {
-            //_foamParticles.Stop();
-            // Дополнительные действия при окончании тушения
+            _foamParticles.Stop();
         }
 
         private void EnabledPrefab()
@@ -90,20 +77,25 @@ namespace Player
         {
             GlobalEvents.SendStartPullThePin();
             _isPullThePin = true;
-            Debug.Log("Выдернули чеку");
         }
 
         private void CheckStateTheSeal()
         {
             _isPullThePin = false;
             _isPullOutTheSeal = true;
-            Debug.Log("Выдернули пломбу");
         }
 
         private void CheckStatePutOutTheFire()
         {
-            _isPullOutTheSeal = false;
-            GlobalEvents.SendStartPutOutTheFire();
+            if (Input.GetButton("Fire1"))
+            {
+                GlobalEvents.SendStartFireParticlesOff();
+                StartExtinguishing();
+            }
+            else if (Input.GetButtonUp("Fire1"))
+            {
+                StopExtinguishing();
+            }
         }
 
         private void OnDestroy()
